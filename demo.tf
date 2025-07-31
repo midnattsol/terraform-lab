@@ -8,6 +8,6 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "test_bucket" {
-  bucket = "my-terraform-test-bucket-1234567890"
+  bucket = "my-terraform-test-bucket-1234567891"
   acl    = "private"
 }
