@@ -1,0 +1,17 @@
+name: Terraform Lint Validation
+
+on:
+  push:
+    paths:
+      - '**/*.tf'
+      - '**/*.tfvars'
+
+jobs:
+  tflint_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run TFLint Composite Action
+        uses: midnattsol/tf-validation/actions/tflint-validation@main
