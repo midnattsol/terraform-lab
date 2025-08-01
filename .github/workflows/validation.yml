@@ -15,3 +15,6 @@ jobs:
 
       - name: Run TFLint Composite Action
         uses: datalush/tf-validation/actions/tflint@main
+
+      - name: Run TFSec
+        uses: datalush/tf-validation/actions/tfsec@main
