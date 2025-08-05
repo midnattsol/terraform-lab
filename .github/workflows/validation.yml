@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run TFLint Composite Action
-        uses: datalush/tf-validation/actions/tflint@main
+        uses: datalush/tf-validation/validation/terraform/tflint@main
 
       - name: Run TFSec
-        uses: datalush/tf-validation/actions/tfsec@main
+        uses: datalush/tf-validation/validation/terraform/tfsec@main
