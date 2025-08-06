@@ -1,0 +1,1 @@
+[![Validation](https://github.com/midnattsol/terraform-lab/actions/workflows/validation.yml/badge.svg?branch=main&event=push)](https://github.com/apache/kafka/actions/workflows/ci.yml?query=event%3Apush+branch%3Amain)
