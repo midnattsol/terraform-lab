@@ -1,9 +1,12 @@
-name: Extract Release Type from PR Title
+name: Tagger Release
 
 on:
   pull_request:
     types: [closed]
     branches: [main]
+
+permissions:
+  contents: write
 
 jobs:
   tag-release:
