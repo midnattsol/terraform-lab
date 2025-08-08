@@ -2,10 +2,8 @@ name: Extract Release Type from PR Title
 
 on:
   pull_request:
-    types:
-      - closed
-    branches:
-      - master
+    types: [closed]
+    branches: [main]
 
 jobs:
   tag-release:
