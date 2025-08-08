@@ -1,0 +1,32 @@
+name: Extract Release Type from PR Title
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
+
+jobs:
+  tag-release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract release type
+        id: extract-bump
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          if [[ "$TITLE" =~ ^\[(major|minor|patch)\] ]]; then
+            TYPE="${BASH_REMATCH[1]}"
+            echo "Release type detected: $TYPE"
+            echo "bump=$TYPE" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ Invalid PR title format. Must start with [major], [minor] or [patch]."
+            exit 1
+          fi
+      - name: Release Tagger
+        id: tagger
+        uses: midnattsol/gh-tagger@main
+        with:
+          bump: ${{ steps.extract-bump.outputs.bump }}
+          token: ${{ secrets.GITHUB_TOKEN }}
